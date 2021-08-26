@@ -54,7 +54,7 @@ const ShipmentCard = () => {
   const [charges, setCharges] = useState(0);
   const [settle, setSettle] = useState(0);
 
-const url = `http://benefit.blue-ex.com/api/customerportal/shipmentgraph.php`;
+const url = `http://benefit.blue-ex.com/api/customerportal/shipmentgraph.php?acno=KHI-06366&hashkey=KaPdSgVkYp3s6v9y`;
   var formdata = new FormData();
   formdata.append(
     "request",
