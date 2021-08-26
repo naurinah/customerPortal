@@ -56,8 +56,8 @@ const ShipmentCard = () => {
 
   const url =
    `http://benefitx.blue-ex.com/api/customerportal/shipment_trend.php`;
-  var myHeaders = new Headers();
-  myHeaders.append("Content-Type", 'application/json');
+//   var myHeaders = new Headers();
+//   myHeaders.append("Content-Type", 'application/json');
 
   var raw =
     '{"acno": "KHI-06366", "startdate": "01/02/2020", "enddate": "01/02/2021"}';
@@ -69,7 +69,7 @@ const ShipmentCard = () => {
 
   var requestOptions = {
     method: "POST",
-    headers: myHeaders,
+//     headers: myHeaders,
     body: raw,
     redirect: "follow",
   };
