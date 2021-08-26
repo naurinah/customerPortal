@@ -54,15 +54,9 @@ const ShipmentCard = () => {
   const [charges, setCharges] = useState(0);
   const [settle, setSettle] = useState(0);
 
-  const url =
-   `http://benefit.blue-ex.com/api/customerportal/shipmentgraph.php`;
-  var myHeaders = new Headers();
-  myHeaders.append("Content-Type", 'application/json');
-
-//   var raw =
-//     '{"acno": "KHI-06366", "startdate": "01/02/2020", "enddate": "01/02/2021"}';
+ const url = `http://benefit.blue-ex.com/api/customerportal/shipmentgraph.php`;
   var formdata = new FormData();
-   formdata.append(
+  formdata.append(
     "request",
     '{"acno": "KHI-06366", "startdate": "2020/02/01", "enddate": "2021/02/01"}'
   );
