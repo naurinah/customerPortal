@@ -85,7 +85,7 @@ xhr.send();
 
   var requestOptions = {
     method: "POST",
-    headers: myHeaders,
+//     headers: myHeaders,
     body: raw,
     redirect: "follow",
   };
