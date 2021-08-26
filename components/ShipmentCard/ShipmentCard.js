@@ -54,7 +54,7 @@ const ShipmentCard = () => {
   const [charges, setCharges] = useState(0);
   const [settle, setSettle] = useState(0);
 
-const url = `http://benefit.blue-ex.com/api/customerportal/shipmentgraph.php?acno=KHI-06366&hashkey=KaPdSgVkYp3s6v9y`;
+const url = `http://benefit.blue-ex.com/api/customerportal/shipmentgraph.php`;
   var formdata = new FormData();
   formdata.append(
     "request",
@@ -62,8 +62,9 @@ const url = `http://benefit.blue-ex.com/api/customerportal/shipmentgraph.php?acn
   );
 
 const requestOptions = {
-    method: "POST",
-    body: formdata,
+   method: 'POST',
+    headers: {
+      "Content-Type": "multipart/form-data"
   };
   const getData = async () => {
     const response = await fetch(url, requestOptions);
