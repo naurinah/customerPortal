@@ -54,10 +54,10 @@ const ShipmentCard = () => {
   const [charges, setCharges] = useState(0);
   const [settle, setSettle] = useState(0);
 
-//   const url =
-//     "http://benefitx.blue-ex.com/api/customerportal/shipment_trend.php";
-//   var myHeaders = new Headers();
-//   myHeaders.append("Content-Type", "text/plain");
+  const url =
+    "http://benefitx.blue-ex.com/api/customerportal/shipment_trend.php";
+  var myHeaders = new Headers();
+  myHeaders.append("Content-Type", "text/plain");
 
 //   var raw =
 //     '{"acno": "KHI-06366", "startdate": "01/02/2020", "enddate": "01/02/2021"}';
@@ -67,18 +67,18 @@ const ShipmentCard = () => {
 //     '{"acno": "KHI-06366", "startdate": "2020/02/01", "enddate": "2021/02/01"}'
 //   );
 
-//   var requestOptions = {
-//     method: "POST",
-//     headers: myHeaders,
-//     body: raw,
-//     redirect: "follow",
-//   };
-//   const getData = async () => {
-//     const response = await fetch(url, requestOptions);
-//     return await response.json();
-//   };
+  var requestOptions = {
+    method: "POST",
+    headers: myHeaders,
+    body: raw,
+    redirect: "follow",
+  };
+  const getData = async () => {
+    const response = await fetch(url, requestOptions);
+    return await response.json();
+  };
 
-//   const { data, error } = useSWR(url, getData);
+  const { data, error } = useSWR(url, getData);
 
   useEffect(() => {
     let temp = [];
