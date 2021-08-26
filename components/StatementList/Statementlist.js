@@ -72,7 +72,7 @@ const columns = [
 const StatementList = () => {
     const ac = "KHI-06366"
     
-    const url =  `http://benefitx.blue-ex.com/api/customerportal/statement.php?acno=${ac}&hashkey=KaPdSgVkYp3s6v9y`;
+    const url =  `http://benefitx.blue-ex.com/api/customerportal/statement.php?acno=${ac}`;
     const getData = async () => {
         const response = await fetch(url);
         return await response.json();
