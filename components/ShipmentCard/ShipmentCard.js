@@ -54,27 +54,12 @@ const ShipmentCard = () => {
   const [charges, setCharges] = useState(0);
   const [settle, setSettle] = useState(0);
 
-//   const url =
-//     "http://benefitx.blue-ex.com/api/customerportal/shipment_trend.php";
-//   var myHeaders = new Headers();
-//   myHeaders.append("Content-Type: text/html; charset=UTF-8);
+  const url =
+    "http://benefitx.blue-ex.com/api/customerportal/shipment_trend.php";
+  var myHeaders = new Headers();
+  myHeaders.append("Content-Type: text/html; charset=UTF-8);
   
-  const url = "http://benefitx.blue-ex.com/api/customerportal/shipment_trend.php";
-
-const xhr = new XMLHttpRequest();
-xhr.open("POST", url);
-
-xhr.setRequestHeader("Content-Type", "application/json");
-xhr.setRequestHeader("Content-Length", "0");
-
-xhr.onreadystatechange = function () {
-   if (xhr.readyState === 4) {
-      console.log(xhr.status);
-      console.log(xhr.responseText);
-   }};
-
-xhr.send();
-
+ 
   var raw =
     '{"acno": "KHI-06366", "startdate": "01/02/2020", "enddate": "01/02/2021"}';
   var formdata = new FormData();
@@ -85,9 +70,9 @@ xhr.send();
 
   var requestOptions = {
     method: "POST",
-//     headers: myHeaders,
+    headers: myHeaders,
     body: raw,
-    redirect: "follow",
+//     redirect: "follow",
   };
   const getData = async () => {
     const response = await fetch(url, requestOptions);
