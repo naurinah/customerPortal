@@ -54,11 +54,10 @@ const ShipmentCard = () => {
   const [charges, setCharges] = useState(0);
   const [settle, setSettle] = useState(0);
 
-const url =
+  const url =
     "http://benefitx.blue-ex.com/api/customerportal/shipment_trend.php";
   var myHeaders = new Headers();
-  
-  myHeaders.append("Content-Type": "multipart/form-data");
+  myHeaders.append("Content-Type", "text/plain");
 
   var raw =
     '{"acno": "KHI-06366", "startdate": "01/02/2020", "enddate": "01/02/2021"}';
@@ -77,10 +76,10 @@ const url =
   const getData = async () => {
     const response = await fetch(url, requestOptions);
     return await response.json();
+    console.log(response);
   };
 
   const { data, error } = useSWR(url, getData);
-
 
   useEffect(() => {
     let temp = [];
@@ -114,8 +113,8 @@ const url =
 
   return (
     <div className={styles.shipment}>
-      <div className={styles.top}>
-        <h2>Shipment Trend</h2>
+      <div className={styles.top} style={{padding:"10px 32px" }}>
+        <h2 style={{fontSize:"1.25rem"}}>Shipment Trend</h2>
         <div className={styles.topRight} ref={ref} onClick={handleDateDisplay}>
           <span className={styles.day}>Last 30 Days</span>
           <span className={styles.date}>Feb 2 - Mar 3</span>
@@ -140,10 +139,11 @@ const url =
           ;
         </div>
       </div>
-      <div className={styles.box}>
-        <div className={styles.boxBar}>
-          <div className={styles.name}>Shipments</div>
-          <div className={styles.value}>
+      <div className={styles.box} style={{  paddingLeft: "10px", borderTop: "1px solid #dfdfdf",
+    borderBottom: "1px solid #dfdfdf"}}>
+        <div className={styles.boxBar} style={{padding: "0.8rem 1rem"}}>
+          <div className={styles.name} style={{fontSize: "14px",fontWeight: "100"}}>Shipments</div>
+          <div className={styles.value}  style={{fontSize: "21px",fontWeight: "500"}}>
               <CurrencyFormat
                   renderText={(value) => (
                     <>
@@ -157,9 +157,9 @@ const url =
                 />
             </div>
         </div>
-        <div className={styles.boxBar}>
-          <div className={styles.name}>COD</div>
-          <div className={styles.value}>PKR&nbsp; 
+        <div className={styles.boxBar} style={{borderRight:"1px solid #e0dfdf"}}>
+          <div className={styles.name}  style={{fontSize: "14px",fontWeight: "100"}}>COD</div>
+          <div className={styles.value} style={{fontSize: "21px",fontWeight: "500"}}>PKR&nbsp; 
           <CurrencyFormat
                   renderText={(value) => (
                     <>
@@ -174,8 +174,8 @@ const url =
           </div>
         </div>
         <div className={styles.boxBar}>
-          <div className={styles.name}>Service Charges</div>
-          <div className={styles.value}>PKR&nbsp;
+          <div className={styles.name}  style={{fontSize: "14px",fontWeight: "100"}}>Service Charges</div>
+          <div className={styles.value} style={{fontSize: "21px",fontWeight: "500"}}>PKR&nbsp;
           <CurrencyFormat
                   renderText={(value) => (
                     <>
@@ -189,9 +189,9 @@ const url =
                 />
           </div>
         </div>
-        <div className={styles.boxBar}>
-          <div className={styles.name}>Amount settle</div>
-          <div className={styles.value}>PKR&nbsp;
+        <div className={styles.boxBar} style={{borderRight:"0px solid #e0dfdf"}}>
+          <div className={styles.name}  style={{fontSize: "14px",fontWeight: "100"}}>Amount settle</div>
+          <div className={styles.value}  style={{fontSize: "21px",fontWeight: "500"}}>PKR&nbsp;
           <CurrencyFormat
                   renderText={(value) => (
                     <>
