@@ -57,7 +57,7 @@ const ShipmentCard = () => {
 //   const url =
 //     "http://benefitx.blue-ex.com/api/customerportal/shipment_trend.php";
 //   var myHeaders = new Headers();
-//   myHeaders.append("Content-Type", "text/plain");
+//   myHeaders.append("Content-Type: text/html; charset=UTF-8);
 
 //   var raw =
 //     '{"acno": "KHI-06366", "startdate": "01/02/2020", "enddate": "01/02/2021"}';
@@ -79,25 +79,41 @@ const ShipmentCard = () => {
 //     console.log(response);
 //   };
 
-//   const { data, error } = useSWR(url, getData);
+  
+  const url = "http://benefitx.blue-ex.com/api/customerportal/shipment_trend.php";
 
-//   useEffect(() => {
-//     let temp = [];
-//     if (data !== undefined) {
-//       setCod(data.codamount)
-//       setCharges(data.blueexcharges)
-//       setSettle(data.net)
-//       setShipments(data.totalshipment)
-//       data.detail.forEach((d) => {
-//         temp.push({
-//           name: d.y,
-//           pv: +d.a,
-//           amt: +d.a,
-//         });
-//       });
-//       setElements(temp);
-//     }
-//   }, [data]);
+const xhr = new XMLHttpRequest();
+xhr.open("POST", url);
+
+xhr.setRequestHeader("Content-Type", "application/json");
+xhr.setRequestHeader("Content-Length", "0");
+
+xhr.onreadystatechange = function () {
+   if (xhr.readyState === 4) {
+      console.log(xhr.status);
+      console.log(xhr.responseText);
+   }};
+
+xhr.send();
+  const { data, error } = useSWR(url, getData);
+  
+  useEffect(() => {
+    let temp = [];
+    if (data !== undefined) {
+      setCod(data.codamount)
+      setCharges(data.blueexcharges)
+      setSettle(data.net)
+      setShipments(data.totalshipment)
+      data.detail.forEach((d) => {
+        temp.push({
+          name: d.y,
+          pv: +d.a,
+          amt: +d.a,
+        });
+      });
+      setElements(temp);
+    }
+  }, [data]);
 
   const [dateDisplay, setDateDisplay] = useState("none");
 
