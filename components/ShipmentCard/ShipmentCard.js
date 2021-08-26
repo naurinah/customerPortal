@@ -59,26 +59,25 @@ const ShipmentCard = () => {
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", 'application/json');
 
-  var raw =
-    '{"acno": "KHI-06366", "startdate": "01/02/2020", "enddate": "01/02/2021"}';
+//   var raw =
+//     '{"acno": "KHI-06366", "startdate": "01/02/2020", "enddate": "01/02/2021"}';
   var formdata = new FormData();
-  formdata.append(
+   formdata.append(
     "request",
     '{"acno": "KHI-06366", "startdate": "2020/02/01", "enddate": "2021/02/01"}'
   );
 
-  var requestOptions = {
+const requestOptions = {
     method: "POST",
-    headers: myHeaders,
     body: formdata,
-//     redirect: "follow",
   };
   const getData = async () => {
     const response = await fetch(url, requestOptions);
     return await response.json();
   };
 
-  const { data, error } = useSWR(url, getData);
+    const { data, error } = useSWR(url, getData);
+
 
   useEffect(() => {
     let temp = [];
