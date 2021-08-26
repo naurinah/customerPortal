@@ -54,23 +54,23 @@ const ShipmentCard = () => {
   const [charges, setCharges] = useState(0);
   const [settle, setSettle] = useState(0);
 
-// //  const url = `http://benefit.blue-ex.com/api/customerportal/shipmentgraph.php`;
-//   var formdata = new FormData();
-//   formdata.append(
-//     "request",
-//     '{"acno": "KHI-06366", "startdate": "2020/02/01", "enddate": "2021/02/01"}'
-//   );
+const url = `http://benefit.blue-ex.com/api/customerportal/shipmentgraph.php`;
+  var formdata = new FormData();
+  formdata.append(
+    "request",
+    '{"acno": "KHI-06366", "startdate": "2020/02/01", "enddate": "2021/02/01"}'
+  );
 
-// const requestOptions = {
-//     method: "POST",
-//     body: formdata,
-//   };
-//   const getData = async () => {
-//     const response = await fetch(url, requestOptions);
-//     return await response.json();
-//   };
+const requestOptions = {
+    method: "POST",
+    body: formdata,
+  };
+  const getData = async () => {
+    const response = await fetch(url, requestOptions);
+    return await response.json();
+  };
 
-//     const { data, error } = useSWR(url, getData);
+    const { data, error } = useSWR(url, getData);
 
 
   useEffect(() => {
