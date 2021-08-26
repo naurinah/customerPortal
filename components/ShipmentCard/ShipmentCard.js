@@ -123,7 +123,7 @@ const ShipmentCard = () => {
           </button>
           <Link href="/deliveries">
             <button className={styles.view}>
-              View <ChevronRightIcon />
+              View <ChevronRightIcon/>
             </button>
           </Link>
         </div>
